@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>lineGraph by K7 & Carkeys</title>
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+<body>
+  <div id="lineGraph" style="width:100%;height:100vh;"></div>
+
+  <script>
+    const xValues = [1, 2, 3, 4, 5];
+
+    const traceA = {
+      x: xValues,
+      y: [10, 15, 13, 17, 14],
+      mode: 'lines',
+      name: 'Test 1',
+      line: { color: 'blue' }
+    };
+
+    const traceB = {
+      x: xValues,
+      y: [16, 5, 11, 9, 15],
+      mode: 'lines',
+      name: 'Test 2',
+      line: { color: 'red' }
+    };
+
+    const traceC = {
+      x: xValues,
+      y: [12, 9, 15, 12, 10],
+      mode: 'lines',
+      name: 'Test 3',
+      line: { color: 'green' }
+    };
+
+    const traceD = {
+      x: xValues,
+      y: [9, 12, 10, 15, 13],
+      mode: 'lines',
+      name: 'Average',
+      line: { color: 'orange' }
+    };
+
+    const data = [traceA, traceB, traceC, traceD];
+
+    const layout = {
+      title: 'A Graph Showing How The Size Of A Graph Affects Time Taken To Finish Burning',
+      xaxis: { title: 'X Axis' },
+      yaxis: { title: 'Y Axis' }
+    };
+
+    Plotly.newPlot('lineGraph', data, layout);
+  </script>
+</body>
+</html>
