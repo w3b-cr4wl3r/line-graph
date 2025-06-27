@@ -1,53 +1,57 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>lineGraph by K7 & Carkeys</title>
+  <title>Burn Time of Jars by K7 & Carkeys</title>
   <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 </head>
 <body>
-  <div id="lineGraph" style="width:100%;height:100vh;"></div>
+  <div id="lineGraph" style="width:100%; height:100vh;"></div>
 
   <script>
-    const xValues = [1, 2, 3, 4, 5];
+    const xValues = ['Jar 1', 'Jar 2', 'Jar 3'];
 
-    const traceA = {
+    const trace1 = {
       x: xValues,
-      y: [10, 15, 13, 17, 14],
-      mode: 'lines',
+      y: [2.5, 5.4, 7.3],
+      mode: 'lines+markers',
       name: 'Test 1',
       line: { color: 'blue' }
     };
 
-    const traceB = {
+    const trace2 = {
       x: xValues,
-      y: [16, 5, 11, 9, 15],
-      mode: 'lines',
+      y: [3.1, 6.5, 6.6],
+      mode: 'lines+markers',
       name: 'Test 2',
       line: { color: 'red' }
     };
 
-    const traceC = {
+    const trace3 = {
       x: xValues,
-      y: [12, 9, 15, 12, 10],
-      mode: 'lines',
+      y: [4.2, 6.1, 8.6],
+      mode: 'lines+markers',
       name: 'Test 3',
       line: { color: 'green' }
     };
 
-    const traceD = {
+    const traceAvg = {
       x: xValues,
-      y: [9, 12, 10, 15, 13],
-      mode: 'lines',
+      y: [
+        (2.5 + 3.1 + 4.2) / 3,
+        (5.4 + 6.5 + 6.1) / 3,
+        (7.3 + 6.6 + 8.6) / 3
+      ],
+      mode: 'lines+markers',
       name: 'Average',
-      line: { color: 'orange' }
+      line: { color: 'orange', dash: 'dashdot' }
     };
 
-    const data = [traceA, traceB, traceC, traceD];
+    const data = [trace1, trace2, trace3, traceAvg];
 
     const layout = {
-      title: 'A Graph Showing How The Size Of A Graph Affects Time Taken To Finish Burning',
-      xaxis: { title: 'X Axis' },
-      yaxis: { title: 'Y Axis' }
+      title: 'Time Taken to Burn In Different Jars 🔥',
+      xaxis: { title: 'Jar' },
+      yaxis: { title: 'Time Taken (seconds)' }
     };
 
     Plotly.newPlot('lineGraph', data, layout);
